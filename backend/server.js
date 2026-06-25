@@ -514,6 +514,17 @@ app.delete('/api/users/me', authenticateToken, async (req, res) => {
     }
 });
 
+// --- STATIC FRONTEND FILES ---
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+    if (req.method === 'GET' && !req.path.startsWith('/api/')) {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    } else {
+        next();
+    }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
