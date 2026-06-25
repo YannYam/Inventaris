@@ -27,6 +27,10 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
+      - '--add-cloudsql-instances'
+      - '$_DB_INSTANCE_NAME'
+      - '--set-env-vars'
+      - 'DB_SOCKET_PATH=/cloudsql/$_DB_INSTANCE_NAME,DB_USER=$_DB_USER,DB_PASSWORD=$_DB_PASSWORD,DB_NAME=$_DB_NAME'
 
 images:
   - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPOSITORY/$_SERVICE_NAME:$COMMIT_SHA'
@@ -35,6 +39,10 @@ substitutions:
   _SERVICE_NAME: 'inventaris-app'
   _REGION: 'asia-southeast2' # Change to your preferred region (e.g., us-central1)
   _REPOSITORY: 'inventaris'     # Change to your Artifact Registry repository name
+  _DB_INSTANCE_NAME: 'inventarisasi-500506:asia-southeast2:dbsmartinventory' # Update this!
+  _DB_USER: 'dbsmartinventory'
+  _DB_PASSWORD: ''
+  _DB_NAME: 'db_smart_inventory'
 
 options:
   logging: CLOUD_LOGGING_ONLY
