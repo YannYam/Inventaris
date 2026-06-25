@@ -34,7 +34,7 @@ images:
 substitutions:
   _SERVICE_NAME: 'inventaris-app'
   _REGION: 'asia-southeast2' # Change to your preferred region (e.g., us-central1)
-  _REPOSITORY: 'Inventaris'     # Change to your Artifact Registry repository name
+  _REPOSITORY: 'inventaris'     # Change to your Artifact Registry repository name
 
 options:
   logging: CLOUD_LOGGING_ONLY
