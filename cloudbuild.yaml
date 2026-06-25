@@ -40,7 +40,7 @@ substitutions:
   _REGION: 'asia-southeast2' # Change to your preferred region (e.g., us-central1)
   _REPOSITORY: 'inventaris'     # Change to your Artifact Registry repository name
   _DB_INSTANCE_NAME: 'inventarisasi-500506:asia-southeast2:dbsmartinventory' # Update this!
-  _DB_USER: 'dbsmartinventory'
+  _DB_USER: 'root'
   _DB_PASSWORD: ''
   _DB_NAME: 'db_smart_inventory'
 
